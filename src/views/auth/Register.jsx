@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook } from 'react-icons/fa';
 import { FaGoogle } from 'react-icons/fa';
 
 function Register() {
+  const [state, setState] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
+
+  const handleInput = (e) => {
+    setState({ ...state, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('🚀🚀🚀  state=', state);
+  };
+
   return (
     <div className="flex min-h-screen min-w-[100vw] items-center justify-center bg-[#cdcae9]">
       <div className="w-[350px] p-2 text-[#ffffff]">
@@ -13,10 +28,12 @@ function Register() {
             Please register your account
           </p>
 
-          <form>
+          <form onSubmit={handleSubmit}>
             <div className="mb-3 flex w-full flex-col gap-1">
               <label htmlFor="name">Name</label>
               <input
+                onChange={handleInput}
+                value={state.name}
                 className="rounded-md border border-slate-400 bg-transparent px-3 py-2 outline-none"
                 type="text"
                 id="name"
@@ -29,6 +46,8 @@ function Register() {
             <div className="mb-3 flex w-full flex-col gap-1">
               <label htmlFor="email">Email</label>
               <input
+                onChange={handleInput}
+                value={state.email}
                 className="rounded-md border border-slate-400 bg-transparent px-3 py-2 outline-none"
                 type="email"
                 id="email"
@@ -41,6 +60,8 @@ function Register() {
             <div className="mb-3 flex w-full flex-col gap-1">
               <label htmlFor="password">Password</label>
               <input
+                onChange={handleInput}
+                value={state.password}
                 className="rounded-md border border-slate-400 bg-transparent px-3 py-2 outline-none"
                 type="password"
                 id="password"
