@@ -11,7 +11,7 @@ export const authReducer = createSlice({
   name: 'auth',
   initialState,
   reducers: {},
-  extraReducers: {},
+  extraReducers: () => {},
 });
 
 // export const {} = authReducer.actions;

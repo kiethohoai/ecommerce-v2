@@ -5,4 +5,5 @@
 
 #5 Project Redux Toolkit Setup
 +Admin Dashboard Setup
-+Redux Toolkit 1
++Redux Toolkit #1
++Redux Toolkit #2
